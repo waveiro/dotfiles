@@ -1,3 +1,4 @@
+# Created by newuser for 5.8.1
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,7 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/.local/bin:$PATH
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/waveiro/.oh-my-zsh"
@@ -76,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm asdf)
+plugins=(git npm asdf docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -117,38 +118,43 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit
 compinit
 
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-export ANDROID_HOME=$ANDROID_SDK_ROOT
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/pulse/extra/usr/lib/x86_64-linux-gnu/
 alias vpn=/usr/local/pulse/pulseUi
-alias cdexercism="cd snap/exercism/5/exercism/javascript"
 alias cdp="cd ~/projects"
 alias cl="clear"
+alias upfonts="fc-cache -fv"
+alias nrs="npm run start"
+alias lss="light-server -s . -w \"**/*.js, **/*.html, **/*.css\" -p 4300"
+alias lssp="light-server -s . -w \"**/*.js, **/*.html, **/*.css\" -p 4300 --servePrefix "
+alias vpn="nordvpn"
+alias lvim="/home/waveiro/.local/bin/lvim"
 alias c="code ."
 alias g="git"
+
+function upnvidia() {
+	sudo apt-get purge 'nvidia*' &&
+	sudo add-apt-repository ppa:graphics-drivers &&
+	sudo apt-get update &&
+	sudo ubuntu-drivers autoinstall
+}
 
 function editrc() {
   vim ~/.zshrc
 }
 
-function lss() {
-  light-server -s . -w "**/*.js, **/*.html, **/*.css" -p 4300
-}
-
 function upapt() {
   sudo apt update -y && sudo apt upgrade -y
-}
+ }
 
 function killport() {
   fuser -n tcp -k $1
 }
 
+function upnvidia() {
+	sudo apt-get purge 'nvidia*'
+	sudo add-apt-repository ppa:graphics-drivers
+	sudo apt-get update
+}
+
 function gclr() {
- git branch --nocolor | grep -v "master" | awk '{$1=$1;print}' | xargs git branch -D
+  git branch --no-color | grep -v "master" | awk '{$1=$1;print}' | xargs git branch -D
 }
