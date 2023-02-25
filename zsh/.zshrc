@@ -152,13 +152,3 @@ function killport() {
 function gclr() {
  git branch --nocolor | grep -v "master" | awk '{$1=$1;print}' | xargs git branch -D
 }
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/waveiro/Projects/Vizir/empreston/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/waveiro/Projects/Vizir/empreston/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/waveiro/Projects/Vizir/empreston/node_modules/tabtab/.completions/sls.zsh ]] && . /home/waveiro/Projects/Vizir/empreston/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /home/waveiro/Projects/Vizir/empreston/node_modules/tabtab/.completions/slss.zsh ]] && . /home/waveiro/Projects/Vizir/empreston/node_modules/tabtab/.completions/slss.zsh
