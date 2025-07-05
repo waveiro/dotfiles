@@ -17,6 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- add LazyVim and import its plugins
+    { "wakatime/vim-wakatime", lazy = false },
     { "ellisonleao/gruvbox.nvim" },
     {
       "LazyVim/LazyVim",
